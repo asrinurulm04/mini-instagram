@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstagramClone</title>
-
-
+    <title>Instuigram</title>
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,7 +12,8 @@
     <nav class="navbar navbar-light bg-light d-flex">
       <div class="container">
         <div class="logo">
-          <a class="navbar-brand" href="#"><i class="fa fa-instagram"></i>
+          <a class="navbar-brand" href="#">
+            <%= fa_stacked_icon "camera inverse", base: "circle"%>
             Instagram
           </a>
         </div>
@@ -25,22 +25,21 @@
         <div class="user-section">
           <a><i class="fa fa-compass"></i></a>
           <a><i class="fa fa-heart"></i></a>
-          
-<% if user_signed_in? %>
-  <a href="<%= destroy_user_session_path%>" data-method="delete">
-    <i class="fa fa-user"></i>
-  </a>
-<% else %>
-  <a href="<%= new_user_session_path%>">
-    <i class="fa fa-sign-in"></i>
-  </a>
-<% end %>
+          <% if user_signed_in? %>
+            <a href="<%= user_path(current_user)%>">
+              <i class="fa fa-user"></i>
+            </a>
+          <% else %>
+            <a href="<%= new_user_session_path%>">
+              <i class="fa fa-sign-in"></i>
+            </a>
+          <% end %>
         </div>
       </div>
     </nav>
 
     <!--Main content-->
-    <main class="container" style="min-height: 500px;">
+    <main class="container" style="min-height: 650px;">
       <%= yield %>
     </main>
 
@@ -61,7 +60,7 @@
           <li>HASHTAGS</li>
           <li>LANGUAGE</li>
         </ul>
-        <p> © 2021 INSTAGRAM </p>
+        <p> © 2018 INSTAGRAM </p>
       </nav>
     </footer>
   </body>
