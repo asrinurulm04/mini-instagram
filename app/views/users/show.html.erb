@@ -2,7 +2,9 @@
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
-        <%= image_tag "profile.jpg" %>
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar %>
+        <%end %>
       </div>
     </div>
     
@@ -13,8 +15,8 @@
           <button>Edit Profile</button>
         </a>
       </div>
-      <ul class="posts">
-        <li><span>12</span> posts</li>
+      <ul class="posts1">
+        <li><span><%= @posts.count %></span> posts</li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
@@ -42,13 +44,9 @@
   </a>
 </div>
 <div class="user-images">
-  <div class="wrapper">
-     <%= image_tag "kedua.jpg" %>
-  </div>
-  <div class="wrapper">
-     <%= image_tag "pertama.jpg" %>
-  </div>
-  <div class="wrapper">
-     <%= image_tag "tiga.jpg" %>
-  </div>
+  <% @posts.each do |post|%>
+    <div class="wrapper">
+      <%=image_tag post.image %>
+    </div>
+  <% end %>
 </div>

@@ -1,1 +1,18 @@
-<h1>This is my home page</h1>
+<div class="posts">
+  <% @posts.each do |post| %>
+    <section class="post">
+      <div class="user">
+        <div class="avatar">
+          <%= link_to user_path(post.user) do %>
+            <%= image_tag post.user.avatar %>
+          <% end %>
+        </div>
+        <%= link_to post.user.username, user_path(post.user), class: 'username' %>
+      </div>
+      <%= image_tag post.image, class: 'main-image' %>
+      <div class="description">
+        <%= post.description %>
+      </div>
+    </section>
+  <% end %>
+</div>
