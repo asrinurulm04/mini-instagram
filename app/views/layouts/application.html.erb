@@ -14,20 +14,25 @@
         <div class="logo">
           <a class="navbar-brand" href="#">
             <%= fa_stacked_icon "camera inverse", base: "circle"%>
-            Instagram
+             <%= image_tag "ins.png", height: 300 %>
           </a>
         </div>
         <div class="m-auto">
-          <form class="form-inline search-form">
-            <input class="form-control mr-sm-2" type="search" placeholder="@search" aria-label="Search">
-          </form>
+          <%= form_with url: search_path, method: :get, local: true, class: 'form-inline search-form' do |form| %>
+            <%= form.text_field :query, value: params[:query], class: 'form-control mr-sm-2', placeholder: '#search' %>
+          <% end %>
         </div>
         <div class="user-section">
+          <a href="<%= home_index_path %>">
+            <i class="fa fa-home"></i>
+          </a>
+          <a><i class="fa fa-commenting-o"></i></a>
+          <a><i class="fa fa-plus-square-o"></i></a>
           <a><i class="fa fa-compass"></i></a>
-          <a><i class="fa fa-heart"></i></a>
+          <a><i class="fa fa-heart-o"></i></a>
           <% if user_signed_in? %>
             <a href="<%= user_path(current_user)%>">
-              <i class="fa fa-user"></i>
+               <%= image_tag current_user.avatar, class: 'avatar' %>
             </a>
           <% else %>
             <a href="<%= new_user_session_path%>">
@@ -60,7 +65,7 @@
           <li>HASHTAGS</li>
           <li>LANGUAGE</li>
         </ul>
-        <p> © 2018 INSTAGRAM </p>
+        <p> © 2021 INSTAGRAM </p>
       </nav>
     </footer>
   </body>

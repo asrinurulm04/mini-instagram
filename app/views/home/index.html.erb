@@ -1,18 +1,41 @@
-<div class="posts">
-  <% @posts.each do |post| %>
-    <section class="post">
-      <div class="user">
-        <div class="avatar">
-          <%= link_to user_path(post.user) do %>
-            <%= image_tag post.user.avatar %>
-          <% end %>
-        </div>
-        <%= link_to post.user.username, user_path(post.user), class: 'username' %>
-      </div>
-      <%= image_tag post.image, class: 'main-image' %>
-      <div class="description">
-        <%= post.description %>
-      </div>
-    </section>
-  <% end %>
+<div class="homepage row">
+<div class="col-md-8">
+  <div class='form-upload'>
+    <%= render 'history' %>
+  </div>
+
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <%= render partial: 'post', locals: { post: post } %>
+    <% end %>
+  </div>
+  </div>
+  <div class="col-md-4">
+    <div class='form-upload'>
+      <%= image_tag current_user.avatar, class: 'foto' %>
+      <b>Saran Untuk Anda</b>
+    </div>
+    <b>Asri Nurul</b><small>asrinurulm</small>
+    <footer class="container footer">
+      <nav class="navbar d-flex">
+        <ul>
+          <li>Tentang.</li>
+          <li>Bantuan.</li>
+          <li>Pers.</li>
+          <li>API.</li>
+          <li>Pekerjaan.</li>
+          <li>Privasi.</li>
+          <li>Ketentuan.</li>
+          <li>Lokasi.</li>
+          <li>Akun.</li>
+          <li>Teratas.</li>
+          <li>Tagar.</li>
+          <li>Bahasa.</li>
+          <li>Indonesia.</li>
+        </ul>
+
+        <p> © 2021 INSTAGRAM FROM FACEBOOK </p>
+      </nav>
+    </footer>
+  </div>
 </div>

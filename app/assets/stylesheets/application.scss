@@ -37,6 +37,7 @@
 
 .search-form {
     input {
+        width: auto;
         font-size: 13px;
         text-align: center;
     }
@@ -59,4 +60,14 @@
     p {
         color: #999;
     }
+}
+.avatar {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+.foto {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
 }
