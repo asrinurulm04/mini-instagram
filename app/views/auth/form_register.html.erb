@@ -1,0 +1,51 @@
+<!-- # app/views/auth/form_register.html.erb -->
+
+<!-- menampilkan pesan notice -->
+<% if notice %>
+    <p><%= notice %></p>
+<% end %>
+
+<!-- menampilkan pesan alert -->
+<% if alert %>
+    <p><%= alert %></p>
+<% end %>
+
+<!-- menampilkan validasi error -->
+<% if @user.errors.any? %>
+    <h5>
+        <%= pluralize(@user.errors.count, "error") %> Uppss!, tidak bisa daftar karena :
+    </h5>
+    <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<div class="homepage row">
+	<div class="col-md-7">
+		<div class="posts">
+	 		<center><%= image_tag "logo.jpg", height: 600 %></center>
+  	</div>
+  </div>
+  <div class="col-md-5"><br>
+    <div class='form-upload'>
+    	<center><%= image_tag "ins.png", height: 80 %><br><br></center>
+      <!-- menampilkan form login -->
+    	<%= form_with model: @user, url: register_post_path do |f| %>
+				<%= f.text_field :name, placeholder: 'Name' %> <br><br>
+				<%= f.text_field :username, placeholder: 'User Name' %> <br><br>
+				<%= f.text_field :phone, placeholder: 'Phone' %> <br><br>
+				<%= f.text_field :email, placeholder: 'Email' %> <br><br>
+				<%= f.password_field :password, placeholder: 'Password' %> <br><br>
+
+				<%= f.submit 'Register' %> <br>
+			<% end %><br>
+			<center>Dengan mendaftar, Anda menyetujui Ketentuan, Kebijakan Data, dan Kebijakan Cookie kami.</center>
+    </div>
+		<div class='form-upload'>
+			<center><p>Punya akun? <%= link_to 'Masuk', form_login_path %></p></center>
+    </div>
+			<center><%= image_tag "app.PNG", height: 100 %></center>
+  </div>
+</div>

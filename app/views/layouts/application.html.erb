@@ -8,13 +8,14 @@
   </head>
 
   <body>
+    <%unless current_user.blank? -%>
     <!--Navigation Bar-->
     <nav class="navbar navbar-light bg-light d-flex">
       <div class="container">
         <div class="logo">
           <a class="navbar-brand" href="#">
             <%= fa_stacked_icon "camera inverse", base: "circle"%>
-             <%= image_tag "ins.png", height: 300 %>
+             <%= image_tag "ins.png", height: 40 %>
           </a>
         </div>
         <div class="m-auto">
@@ -27,21 +28,25 @@
             <i class="fa fa-home"></i>
           </a>
           <a><i class="fa fa-commenting-o"></i></a>
-          <a><i class="fa fa-plus-square-o"></i></a>
+          <a href="<%= posts_new_path %>">
+            <i class="fa fa-plus-square-o"></i>
+          </a>
           <a><i class="fa fa-compass"></i></a>
           <a><i class="fa fa-heart-o"></i></a>
-          <% if user_signed_in? %>
+          <%unless current_user.blank? -%>
             <a href="<%= user_path(current_user)%>">
                <%= image_tag current_user.avatar, class: 'avatar' %>
             </a>
-          <% else %>
-            <a href="<%= new_user_session_path%>">
-              <i class="fa fa-sign-in"></i>
-            </a>
-          <% end %>
+            <li>
+              <%= link_to 'Logout', user_logout_path(current_user), method: :delete %>
+            </li>
+          <%else -%>
+          not signed in
+          <%end-%>
         </div>
       </div>
     </nav>
+    <%end-%>
 
     <!--Main content-->
     <main class="container" style="min-height: 650px;">
