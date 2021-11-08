@@ -12,7 +12,7 @@
 
 <div class="homepage row">
 	<div class="col-md-7">
-		<div class="posts">
+	<div class="posts">
 	 		<center><%= image_tag "logo.jpg", height: 600 %></center>
   	</div>
   </div>
@@ -20,11 +20,11 @@
     <div class='form-upload'>
     	<center><%= image_tag "ins.png", height: 80 %><br><br></center>
       <!-- menampilkan form login -->
-    	<%= form_tag controller: :auth, action: :login, local: true do %>
-        <%= text_field_tag :email, '', placeholder: 'Email' %> <br><br>
-        <%= password_field_tag :password, '', placeholder: 'Password' %> <br><br>
+    	<%= form_tag controller: :auth, action: :login, local: true do |f| %>
+        <%= text_field_tag :email, '', placeholder: 'Email', class: 'form-control' %> <br>
+        <%= password_field_tag :password, '', placeholder: 'Password', class: 'form-control' %> <br>
 
-        <%= submit_tag 'Login' %> <br>
+        <%= submit_tag 'Login', class: "btn btn-primary btn-block" %> <br>
     	<% end %>
 			-------------------- ATAU -------------------- <br><br>
 			<center><li class="fa fa-facebook-official"> Masuk Dengan Facebook</li>
