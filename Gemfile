@@ -16,6 +16,10 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'toastr-rails'
+# gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails"
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
