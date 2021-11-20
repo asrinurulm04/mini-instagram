@@ -16,9 +16,9 @@
 	 		<center><%= image_tag "logo.jpg", height: 600 %></center>
   	</div>
   </div>
-  <div class="col-md-5"><br>
+  <div class="col-md-5">
     <div class='form-upload'>
-    	<center><%= image_tag "ins.png", height: 80 %><br><br></center>
+    	<center><%= image_tag "ins.png", height: 80 %><br></center>
       <!-- menampilkan form login -->
     	<%= form_tag controller: :auth, action: :login, local: true do |f| %>
         <%= text_field_tag :email, '', placeholder: 'Email', class: 'form-control' %> <br>
@@ -26,7 +26,7 @@
 
         <%= submit_tag 'Login', class: "btn btn-primary btn-block" %> <br>
     	<% end %>
-			-------------------- ATAU -------------------- <br><br>
+			-------------------- ATAU -------------------- <br>
 			<center><li class="fa fa-facebook-official"> Masuk Dengan Facebook</li>
 			<p>Lupa Kata Sandi?</p></center>
     </div>
